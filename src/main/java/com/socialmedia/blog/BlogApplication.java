@@ -16,7 +16,6 @@ public class BlogApplication  implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Naveen");
-		System.out.println("Naveen");
-		System.out.println("Naveen");
+		int x =100;
 	}
 }
