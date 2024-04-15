@@ -17,5 +17,6 @@ public class BlogApplication  implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		System.out.println("Naveen");
 		int x =100;
+		int y =200;
 	}
 }
