@@ -18,10 +18,13 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-    // http://localhost:8080/api/posts
+    // http://localhost:8080/api/posts?pageNo=1&pageSize=10&sortBy=id&sorDir=asc
     @GetMapping
-    public ResponseEntity<List<?>> getAllPosts() {
-        List<?> posts = postService.getAllPosts();
+    public ResponseEntity<List<?>> getAllPosts(@RequestParam(defaultValue = "0") int pageNo,
+                                               @RequestParam(defaultValue = "10") int pageSize,
+                                               @RequestParam(defaultValue = "id") String sortBy,
+                                               @RequestParam(defaultValue = "asc") String sortDir) {
+        List<?> posts = postService.getAllPosts(pageNo,pageSize,sortBy,sortDir);
         return new ResponseEntity<>(posts, HttpStatus.OK);
     }
 

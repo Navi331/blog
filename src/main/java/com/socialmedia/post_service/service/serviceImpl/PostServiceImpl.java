@@ -1,11 +1,16 @@
 package com.socialmedia.post_service.service.serviceImpl;
 
 import com.socialmedia.post_service.collection.Post;
+import com.socialmedia.post_service.exception.ResourceNotFoundException;
 import com.socialmedia.post_service.payload.PostDto;
 import com.socialmedia.post_service.repo.PostRepo;
 import com.socialmedia.post_service.service.PostService;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -14,6 +19,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class PostServiceImpl implements PostService {
     @Autowired
     private PostRepo postRepository;
@@ -22,13 +28,19 @@ public class PostServiceImpl implements PostService {
     private ModelMapper modelMapper;
 
     @Override
-    public List<?> getAllPosts() {
-        List<Post> posts = postRepository.findAll();
+    public List<?> getAllPosts(int pageNo,int pageSize,String sortBy,String sortDir) {
+        Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name())?Sort.by(sortBy).ascending():Sort.by(sortBy).descending();
+        PageRequest page = PageRequest.of(pageNo,pageSize,sort);
+        Page<Post> pages = postRepository.findAll(page);
+        List<?> posts = pages.getContent();
         if(posts.isEmpty()){
             return Collections.singletonList("No posts found");
         }
         return posts.stream()
-                .map(post -> modelMapper.map(post, PostDto.class))
+                .map(post -> {
+                    System.out.println(post);
+                    return modelMapper.map(post, PostDto.class);
+                })
                 .collect(Collectors.toList());
     }
 
@@ -36,7 +48,7 @@ public class PostServiceImpl implements PostService {
     public PostDto getPostById(String id) {
         Post post = postRepository.findById(id).orElse(null);
         if (post == null) {
-           throw  new RuntimeException("Post not found with id: "+id); // Handle the case when the post with the given id is not found
+           throw  new ResourceNotFoundException("Post not found with id: "+id); // Handle the case when the post with the given id is not found
         }
         return modelMapper.map(post, PostDto.class);
     }
@@ -52,7 +64,7 @@ public class PostServiceImpl implements PostService {
     public PostDto updatePost(String id, PostDto postDTO) {
         Post existingPost = postRepository.findById(id).orElse(null);
         if (existingPost == null) {
-            throw  new RuntimeException("Post not found with id: "+id);
+            throw  new ResourceNotFoundException("Post not found with id: "+id);
         }
         // Update fields from DTO
         modelMapper.map(postDTO, existingPost);
@@ -64,7 +76,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public void deletePost(String id) {
         Optional<Post> byId = postRepository.findById(id);
-        byId.orElseThrow(()->new RuntimeException("No such post found for id " + id));
+        byId.orElseThrow(()->new ResourceNotFoundException("No such post found for id " + id));
         postRepository.deleteById(id);
     }
 }

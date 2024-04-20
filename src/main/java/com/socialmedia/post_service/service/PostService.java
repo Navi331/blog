@@ -5,7 +5,7 @@ import com.socialmedia.post_service.payload.PostDto;
 import java.util.List;
 
 public interface PostService {
-    List<?> getAllPosts();
+    List<?> getAllPosts(int pageNo,int pageSize,String sortBy,String sortDir);
     PostDto getPostById(String id);
     PostDto createPost(PostDto postDTO);
     PostDto updatePost(String id, PostDto postDTO);

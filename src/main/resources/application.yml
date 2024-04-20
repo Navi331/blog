@@ -1,25 +1,19 @@
 spring:
   application:
     name: post_service
-
-  # MySQL Configuration
   datasource:
     url: jdbc:mysql://localhost:3306/blog?createDatabaseIfNotExist=true
     username: root
     password: Navi331
     driver-class-name: com.mysql.cj.jdbc.Driver
-
   jpa:
     open-in-view: false
     hibernate:
       ddl-auto: update
     show-sql: true
-    generate-ddl: true
-
-  # MongoDB Configuration
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/blog
+data:
+  mongodb:
+    uri: mongodb://localhost:27017/blog
 
 logging:
   level:
