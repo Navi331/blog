@@ -1,4 +1,4 @@
-package com.socialmedia.blog.payload;
+package com.socialmedia.post_service.payload;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;

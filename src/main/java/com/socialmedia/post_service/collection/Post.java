@@ -1,4 +1,4 @@
-package com.socialmedia.blog.collection;
+package com.socialmedia.post_service.collection;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

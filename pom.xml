@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.socialmedia</groupId>
-	<artifactId>blog</artifactId>
+	<artifactId>post_service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>blog</name>
-	<description>blog application </description>
+	<name>post_service</name>
+	<description>post service </description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

@@ -1,4 +1,4 @@
-package com.socialmedia.blog.config;
+package com.socialmedia.post_service.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

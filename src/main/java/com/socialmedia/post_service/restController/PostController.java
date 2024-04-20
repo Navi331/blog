@@ -1,7 +1,7 @@
-package com.socialmedia.blog.restController;
+package com.socialmedia.post_service.restController;
 
-import com.socialmedia.blog.payload.PostDto;
-import com.socialmedia.blog.service.PostService;
+import com.socialmedia.post_service.payload.PostDto;
+import com.socialmedia.post_service.service.PostService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

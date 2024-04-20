@@ -1,10 +1,10 @@
-package com.socialmedia.blog;
+package com.socialmedia.post_service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BlogApplicationTests {
+class PostServiceTests {
 
 	@Test
 	void contextLoads() {

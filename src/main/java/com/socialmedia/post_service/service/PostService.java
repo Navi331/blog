@@ -1,6 +1,6 @@
-package com.socialmedia.blog.service;
+package com.socialmedia.post_service.service;
 
-import com.socialmedia.blog.payload.PostDto;
+import com.socialmedia.post_service.payload.PostDto;
 
 import java.util.List;
 

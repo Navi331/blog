@@ -1,6 +1,6 @@
 spring:
   application:
-    name: Blog
+    name: post_service
 
   # MySQL Configuration
   datasource:

@@ -1,9 +1,9 @@
-package com.socialmedia.blog.service.serviceImpl;
+package com.socialmedia.post_service.service.serviceImpl;
 
-import com.socialmedia.blog.collection.Post;
-import com.socialmedia.blog.payload.PostDto;
-import com.socialmedia.blog.repo.PostRepo;
-import com.socialmedia.blog.service.PostService;
+import com.socialmedia.post_service.collection.Post;
+import com.socialmedia.post_service.payload.PostDto;
+import com.socialmedia.post_service.repo.PostRepo;
+import com.socialmedia.post_service.service.PostService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
