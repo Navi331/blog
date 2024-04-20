@@ -15,6 +15,6 @@ public class BlogApplication  implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-
+		int x=10;
 	}
 }
