@@ -15,6 +15,6 @@ public class PostService implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-
+		System.out.println("PostService");
 	}
 }
