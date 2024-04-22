@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -24,5 +25,5 @@ public class PostDto {
 
     private boolean published;
 
-    private List<Comment> comments;
+    private List<Comment> comments = new ArrayList<>();
 }

@@ -41,6 +41,11 @@ public class CommentsController {
         commentsService.deleteComment(postId, commentId);
         return ResponseEntity.noContent().build();
     }
+    @GetMapping
+    public ResponseEntity<List<Comment>> findCommentsByPostId(@PathVariable String postId) {
+        List<Comment> comments = commentsService.findCommentsByPostId(postId);
+        return ResponseEntity.ok(comments);
+    }
 }
 
 

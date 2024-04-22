@@ -10,4 +10,5 @@ public interface CommentService {
     Comment getComment(String postId, String commentId);
     Comment updateComment(String postId, String commentId, Comment comment);
     void deleteComment(String postId, String commentId);
+    List<Comment> findCommentsByPostId(String postId);
 }
