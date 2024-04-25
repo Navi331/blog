@@ -1,8 +1,7 @@
 spring:
   data:
     mongodb:
-      database: blog
-      host: localhost
-      port: 27017
+      uri: mongodb://localhost:27017/blog
       driver-class-name: com.mongodb.client.MongoClient
+
 
