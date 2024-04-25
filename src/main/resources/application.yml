@@ -1,10 +1,8 @@
 spring:
-  application:
-    name: post_service
-data:
-  mongodb:
-    uri: mongodb://localhost:27017/blog
+  data:
+    mongodb:
+      database: blog
+      host: mongodb
+      port: 27017
+      driver-class-name: com.mongodb.client.MongoClient
 
-logging:
-  level:
-    root: INFO
