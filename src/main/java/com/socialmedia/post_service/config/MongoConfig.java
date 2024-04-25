@@ -12,7 +12,7 @@ public class MongoConfig {
     public MongoClient mongoClient() {
         // Create and return MongoClient instance with your MongoDB connection details
         // For example:
-        return MongoClients.create("mongodb://mongodb:27017");
+        return MongoClients.create("mongodb://localhost:27017");
     }
 
     @Bean
