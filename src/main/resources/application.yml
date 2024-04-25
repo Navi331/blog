@@ -2,7 +2,7 @@ spring:
   data:
     mongodb:
       database: blog
-      host: mongodb
+      host: localhost
       port: 27017
       driver-class-name: com.mongodb.client.MongoClient
 
